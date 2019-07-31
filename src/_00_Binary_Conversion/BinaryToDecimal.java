@@ -6,7 +6,8 @@ public class BinaryToDecimal {
 		// For example:
 		System.out.println(0b111);
 		//This prints 7, because 111 is 7 in binary.
-		
+		System.out.println(binaryToDecimal(111));
+		System.out.println(binaryToDecimal(10110));
 		//EXAMPLE: Convert 0 1 0 1 1 0 from binary to decimal
 		
 		/*To convert binary to decimal, use the following algorithm:
@@ -25,5 +26,14 @@ public class BinaryToDecimal {
 				    010110 in binary is equal to 22 in decimal!
 		 
 		 */
+	}
+	public static int binaryToDecimal(int i) {
+		if(i == 0) {
+			return 0;
+		}
+		if(i % 10 == 1) {
+			return 1 + 2* binaryToDecimal((i-1)/10);
+		}
+		return 2*binaryToDecimal(i/10);
 	}
 }
